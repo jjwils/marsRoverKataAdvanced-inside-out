@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="MovementTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2023-02-27T09:39:20" hostname="FVFHC0WGQ05N" time="0.065">
+  <properties/>
+  <testcase name="should_give_direction_W_when_command_left()" classname="MovementTest" time="0.036"/>
+  <testcase name="should_give_direction_E_when_command_right()" classname="MovementTest" time="0.003"/>
+  <testcase name="should_give_direction_N_when_command_four_right()" classname="MovementTest" time="0.001"/>
+  <testcase name="should_give_direction_N_when_no_commands()" classname="MovementTest" time="0.002"/>
+  <testcase name="should_give_direction_N_when_command_right_left()" classname="MovementTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
