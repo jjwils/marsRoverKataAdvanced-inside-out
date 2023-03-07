@@ -2,6 +2,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class MovementTest {
     private Rover rover;
@@ -51,6 +52,15 @@ public class MovementTest {
         rover.move("L");
 
         assertEquals("N", rover.direction());
+    }
 
+    @Test
+    void should_give_error_when_command_isNull() {
+        assertThrows(IllegalArgumentException.class, () -> rover.move(null) , "Command is null" );
+    }
+
+    @Test
+    void should_give_error_when_command_is_not_allowed() {
+        assertThrows(IllegalArgumentException.class, () -> rover.move("Z") , "Command is null" );
     }
 }

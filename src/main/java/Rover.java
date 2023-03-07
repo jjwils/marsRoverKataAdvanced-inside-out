@@ -7,7 +7,10 @@ public class Rover {
     }
 
     public void move(String command) {
-        if (command.equals("R")) {
+        if (command == null ) {
+            throw new IllegalArgumentException();
+        }
+        else if (command.equals("R")) {
             directionIndex++;
             if (directionIndex == 4) {
                 directionIndex = 0;
@@ -17,6 +20,9 @@ public class Rover {
             if (directionIndex == -1) {
                 directionIndex = 3;
             }
+
+        }else {
+            throw new IllegalArgumentException();
         }
     }
 }
