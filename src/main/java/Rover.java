@@ -7,22 +7,25 @@ public class Rover {
     }
 
     public void move(String command) {
-        if (command == null ) {
-            throw new IllegalArgumentException();
-        }
-        else if (command.equals("R")) {
-            directionIndex++;
-            if (directionIndex == 4) {
-                directionIndex = 0;
-            }
-        } else if (command.equals("L")) {
-            directionIndex--;
-            if (directionIndex == -1) {
-                directionIndex = 3;
+        if (command != null) {
+
+            if (command.equals("R")) {
+                directionIndex++;
+                if (directionIndex == 4) {
+                    directionIndex = 0;
+                }
+                return;
+            } else if (command.equals("L")) {
+                directionIndex--;
+                if (directionIndex == -1) {
+                    directionIndex = 3;
+                }
+                return;
             }
 
-        }else {
-            throw new IllegalArgumentException();
+
+
         }
+        throw new IllegalArgumentException();
     }
 }
