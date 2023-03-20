@@ -1,6 +1,8 @@
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvFileSource;
+import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -21,47 +23,14 @@ public class MovementTest {
 
     }
 
-    @Test
-    void should_give_direction_E_when_command_right() {
-
-        rover.moves("R");
-        assertEquals("E", rover.direction());
-
-    }
-
-    @Test
-    void should_give_direction_W_when_command_left() {
-        rover.moves("L");
-        assertEquals("W", rover.direction());
-
-    }
-
-    @Test
-    void should_give_direction_N_when_command_four_right() {
-        rover.moves("R");
-        rover.moves("R");
-        rover.moves("R");
-        rover.moves("R");
-        assertEquals("N", rover.direction());
-
-    }
-
     // MMRMMLM
-    @Test
-    void should_give_direction_N_when_command_right_left() {
-
-        rover.moves("R");
-        rover.moves("L");
-
-        assertEquals("N", rover.direction());
-    }
     @ParameterizedTest
-    @ValueSource(strings = {"RL"})
-    void should_give_direction_when_command(String directions) {
+    @CsvSource( {"RL,N", "RRRR,N", "R,E", "L,W"  })
+    void should_give_direction_when_command(String command,String direction) {
 
-        rover.moves(directions);
+        rover.moves(command);
 
-        assertEquals("N", rover.direction());
+        assertEquals(direction, rover.direction());
     }
 
     @Test
