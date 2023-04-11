@@ -22,6 +22,10 @@ public class CommandConverterShould {
     List<Command> commandsAsEnum = commands.stringToEnum("R");
 
     assertEquals(1, commandsAsEnum.size());
+    assertEquals(Command.RIGHT, commandsAsEnum.get(0));
+
   }
+
+
 
 }
