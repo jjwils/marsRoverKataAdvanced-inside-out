@@ -1,4 +1,6 @@
+import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
@@ -41,6 +43,14 @@ public class MovementTest {
     @Test
     void should_give_error_when_command_is_not_allowed() {
         assertThrows(IllegalArgumentException.class, () -> rover.moves("Z") , "Command is invalid" );
+    }
+
+    @Test
+    @Disabled
+    // TODO: Enable test, decide on a name
+    void should_give_cant_decide() {
+        List<Command> commandsAsEnum = rover.commandsStringToEnum("RL");
+        assertEquals(2, commandsAsEnum.size());
     }
 
 

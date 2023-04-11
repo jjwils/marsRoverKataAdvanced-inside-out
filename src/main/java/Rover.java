@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Rover {
     String[] directions = new String[]{"N", "E", "S", "W"};
     private int directionIndex = 0;
@@ -7,9 +10,9 @@ public class Rover {
     }
 
 
-    public void moves(String command) {
-        if (command != null) {
-            char[] commands = command.toCharArray();
+    public void moves(String commandsAsString) {
+        if (commandsAsString != null) { // TODO revisit
+            char[] commands = commandsAsString.toCharArray();
             for (int i = 0; i < commands.length; i++) {
                 move(commands, i);
             }
@@ -35,5 +38,9 @@ public class Rover {
         } else {
             throw new IllegalArgumentException();
         }
+    }
+
+    public List<Command> commandsStringToEnum(String commandsAsString) {
+        return List.of();
     }
 }
