@@ -39,8 +39,4 @@ public class Rover {
             throw new IllegalArgumentException();
         }
     }
-
-    public List<Command> commandsStringToEnum(String commandsAsString) {
-        return List.of();
-    }
 }
