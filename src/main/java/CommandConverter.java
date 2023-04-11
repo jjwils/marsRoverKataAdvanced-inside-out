@@ -6,10 +6,18 @@ public class CommandConverter {
 
   public List<Command> stringToEnum(String commandsString) {
 
-    List<Command> commands = Collections.emptyList();
+    List<Command> commands = new ArrayList<>();
 
-    if (commandsString.equals("R")) {
-      commands = List.of(Command.RIGHT);
+    for (int i = 0; i < commandsString.length(); i++) {
+
+      if (commandsString.toCharArray()[i] == 'R') {
+        commands.add(Command.RIGHT);
+      }
+
+      if (commandsString.toCharArray()[i] == 'L') {
+        commands.add(Command.LEFT);
+      }
+
     }
 
     return commands;

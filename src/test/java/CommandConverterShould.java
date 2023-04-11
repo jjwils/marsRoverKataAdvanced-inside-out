@@ -26,6 +26,19 @@ public class CommandConverterShould {
 
   }
 
+  @Test
+  void return_enums_for_a_string() {
+    CommandConverter commands = new CommandConverter();
+
+    List<Command> commandsAsEnum = commands.stringToEnum("RL");
+
+    assertEquals(2, commandsAsEnum.size());
+    assertEquals(Command.RIGHT, commandsAsEnum.get(0));
+    assertEquals(Command.LEFT, commandsAsEnum.get(1));
+
+
+  }
+
 
 
 }
