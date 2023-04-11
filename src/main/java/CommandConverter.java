@@ -5,6 +5,16 @@ import java.util.List;
 public class CommandConverter {
 
   public List<Command> stringToEnum(String commandsString) {
-    return Collections.emptyList();
+
+    List<Command> commands = Collections.emptyList();
+
+    if (commandsString.equals("R")) {
+      commands = List.of(Command.RIGHT);
+    }
+
+    return commands;
+
+
+
   }
 }

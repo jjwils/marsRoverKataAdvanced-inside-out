@@ -15,4 +15,13 @@ public class CommandConverterShould {
     assertEquals(0, commandsAsEnum.size());
   }
 
+  @Test
+  void return_enum_for_a_single_string() {
+    CommandConverter commands = new CommandConverter();
+
+    List<Command> commandsAsEnum = commands.stringToEnum("R");
+
+    assertEquals(1, commandsAsEnum.size());
+  }
+
 }
