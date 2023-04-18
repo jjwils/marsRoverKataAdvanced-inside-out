@@ -16,13 +16,17 @@ class RoverShould {
 
     @Test
     void use_the_command_convertor(){
+        //given
+        Rover rover = new Rover(commandConverter);
 
-        Rover rover = new Rover();
-
+        //when
         rover.moves("RL");
 
+        //then
         verify(commandConverter).stringToEnum(any());
 
     }
+
+
 
 }

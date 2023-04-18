@@ -2,20 +2,26 @@ import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+@ExtendWith(MockitoExtension.class)
 public class MovementTest {
     private Rover rover;
 
+
     @BeforeEach
     void initialize() {
-        rover = new Rover();
+        CommandConverter commandConverter = new CommandConverter();
+        rover = new Rover(commandConverter);
     }
 
     @Test
@@ -27,11 +33,12 @@ public class MovementTest {
 
     // MMRMMLM
     @ParameterizedTest
-    @CsvSource( {"RL,N", "RRRR,N", "R,E", "L,W"  })
+    @CsvSource( {"RL,N", "RRRR,N", "R,E", "L,W", "RR,S"  })
     void should_give_direction_when_command(String command,String direction) {
-
+        //act
         rover.moves(command);
 
+        //assert
         assertEquals(direction, rover.direction());
     }
 
