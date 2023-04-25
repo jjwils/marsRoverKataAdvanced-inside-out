@@ -34,6 +34,7 @@ public class MovementTest {
     // MMRMMLM
     @ParameterizedTest
     @CsvSource( {"RL,N", "RRRR,N", "R,E", "L,W", "RR,S"  })
+    // left(), right()
     void should_give_direction_when_command(String command,String direction) {
         //act
         rover.moves(command);
@@ -49,7 +50,11 @@ public class MovementTest {
 
     @Test
     void should_give_error_when_command_is_not_allowed() {
-        assertThrows(IllegalArgumentException.class, () -> rover.moves("Z") , "Command is invalid" );
+        assertThrows(
+            IllegalArgumentException.class,
+            () -> rover.moves("Z") ,
+            "Command is invalid"
+        );
     }
 
 
