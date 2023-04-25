@@ -12,12 +12,15 @@ public class CommandConverter {
 
       if (commandsString.toCharArray()[i] == 'R') {
         commands.add(Command.RIGHT);
-      } else if (commandsString.toCharArray()[i] == 'L') {
-        commands.add(Command.LEFT);
-      } else {
-
-        throw new IllegalArgumentException();
+        continue;
       }
+
+      if (commandsString.toCharArray()[i] == 'L') {
+        commands.add(Command.LEFT);
+        continue;
+      }
+
+      throw new IllegalArgumentException();
 
     }
 
