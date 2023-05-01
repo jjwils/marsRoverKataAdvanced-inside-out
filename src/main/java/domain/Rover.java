@@ -1,4 +1,5 @@
-import java.util.ArrayList;
+package domain;
+
 import java.util.List;
 
 public class Rover {

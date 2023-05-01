@@ -1,6 +1,11 @@
+package domain;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.List;
+
+import domain.Command;
+import domain.CommandConverter;
 import org.junit.jupiter.api.Test;
 
 public class CommandConverterShould {
