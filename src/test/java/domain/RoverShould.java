@@ -24,7 +24,7 @@ public class RoverShould {
     }
 
     @Test
-    void should_give_direction_N_when_no_commands() {
+    void give_direction_N_when_no_commands() {
 
         assertEquals("N", rover.direction());
 
@@ -34,7 +34,7 @@ public class RoverShould {
     @ParameterizedTest
     @CsvSource( {"RL,N", "RRRR,N", "R,E", "L,W", "RR,S"  })
     // left(), right()
-    void should_give_direction_when_command(String command,String direction) {
+    void give_direction_when_command(String command,String direction) {
         //act
         rover.moves(command);
 
@@ -43,12 +43,12 @@ public class RoverShould {
     }
 
     @Test
-    void should_give_error_when_command_isNull() {
+    void give_error_when_command_isNull() {
         assertThrows(IllegalArgumentException.class, () -> rover.moves(null) , "domain.Command is null" );
     }
 
     @Test
-    void should_give_error_when_command_is_not_allowed() {
+    void give_error_when_command_is_not_allowed() {
         assertThrows(
             IllegalArgumentException.class,
             () -> rover.moves("Z") ,
