@@ -16,20 +16,11 @@ public class Rover {
         return directions[directionIndex];
     }
 
-
-    public void moves(String commandsAsString) {
-        if (commandsAsString != null) {
-            List<Command> commands = commandConverter.stringToEnum(commandsAsString);
-            for (int i = 0; i < commands.size(); i++) {
-                move(commands, i);
-            }
-        } else {
-            throw new IllegalArgumentException();
-        }
-
+    public List<Command> getCommands(String commandsAsString) {
+        return commandConverter.stringToEnum(commandsAsString);
     }
 
-    private void move(List<Command> commands, int i) {
+    public void move(List<Command> commands, int i) {
         if (commands.get(i) == Command.RIGHT) {
             directionIndex++;
             if (directionIndex == 4) {
