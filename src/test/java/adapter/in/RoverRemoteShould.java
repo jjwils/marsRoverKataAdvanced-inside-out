@@ -12,20 +12,22 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class RoverRemoteShould {
     private Rover rover;
-
+private RoverRemote roverRemote;
     @BeforeEach
     void initialize() {
         CommandConverter commandConverter = new CommandConverter();
         rover = new Rover(commandConverter);
+        roverRemote = new RoverRemote(rover);
+
     }
 
     @ParameterizedTest
     @CsvSource({"RL,N", "RRRR,N", "R,E", "L,W", "RR,S"})
     void give_direction_when_command(String command, String direction) {
         //arrange
-        RoverRemote roverRemote = new RoverRemote(rover);
+
         //act
-        roverRemote.moves(rover,command);
+        roverRemote.moves(command);
 
         //assert
         assertEquals(direction, rover.direction());
@@ -34,12 +36,12 @@ public class RoverRemoteShould {
     void give_error_when_command_is_not_allowed() {
         assertThrows(
                 IllegalArgumentException.class,
-                () -> RoverRemote.moves(rover, "Z"),
+                () -> roverRemote.moves("Z"),
                 "domain.Command is invalid"
         );
     }
     @Test
     void give_error_when_command_isNull() {
-        assertThrows(IllegalArgumentException.class, () -> RoverRemote.moves(rover, null), "domain.Command is null");
+        assertThrows(IllegalArgumentException.class, () -> roverRemote.moves(null), "domain.Command is null");
     }
 }
