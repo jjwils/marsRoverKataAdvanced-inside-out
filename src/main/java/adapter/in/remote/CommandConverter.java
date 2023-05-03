@@ -1,22 +1,24 @@
-package domain;
+package adapter.in.remote;
+
+import domain.Command;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class CommandConverter {
 
-  public List<Command> stringToEnum(String commandsString) {
+  public static List<Command> getCommands(String commandsAsString) {
 
     List<Command> commands = new ArrayList<>();
 
-    for (int i = 0; i < commandsString.length(); i++) {
+    for (int i = 0; i < commandsAsString.length(); i++) {
 
-      if (commandsString.toCharArray()[i] == 'R') {
+      if (commandsAsString.toCharArray()[i] == 'R') {
         commands.add(Command.RIGHT);
         continue;
       }
 
-      if (commandsString.toCharArray()[i] == 'L') {
+      if (commandsAsString.toCharArray()[i] == 'L') {
         commands.add(Command.LEFT);
         continue;
       }
@@ -26,7 +28,6 @@ public class CommandConverter {
     }
 
     return commands;
-
 
 
   }
