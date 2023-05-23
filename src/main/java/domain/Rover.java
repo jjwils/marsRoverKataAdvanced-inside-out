@@ -6,24 +6,20 @@ public class Rover {
     String[] directions = new String[]{"N", "E", "S", "W"};
     private int directionIndex = 0;
 
-     CommandConverter commandConverter;
-
-    public Rover(CommandConverter commandConverter) {
-        this.commandConverter = commandConverter;
+    public Rover() {
     }
 
     public String direction() {
         return directions[directionIndex];
     }
 
-    public List<Command> getCommands(String commandsAsString) {
-        return commandConverter.stringToEnum(commandsAsString);
-    }
+    public void move(List<Command> commands) {
+       if (commands == null) {
+            throw new IllegalArgumentException();
+        }
 
-
-
-    public void loopMoves(List<Command> commands) {
         for (Command command : commands) {
+
             if (command == Command.RIGHT) {
                 directionIndex++;
                 if (directionIndex == 4) {

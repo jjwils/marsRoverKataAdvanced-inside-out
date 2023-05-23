@@ -1,12 +1,14 @@
 package adapter.in;
 
 import domain.Command;
+import domain.CommandConverter;
 import domain.Rover;
 
 import java.util.List;
 
 public class RoverRemote {
     private final Rover rover;
+    CommandConverter commandConverter = new CommandConverter();
 
     public RoverRemote(Rover rover) {
         this.rover = rover;
@@ -14,12 +16,14 @@ public class RoverRemote {
 
     public void moves(String commandsAsString) {
         if (commandsAsString != null) {
-            List<Command> commands = rover.getCommands(commandsAsString);
-            rover.loopMoves(commands);
+            List<Command> commands = commandConverter.getCommands(commandsAsString);
+            rover.move(commands);
         } else {
             throw new IllegalArgumentException();
         }
 
     }
+
+
 
 }

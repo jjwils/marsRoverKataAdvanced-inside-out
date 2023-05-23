@@ -11,12 +11,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class RoverRemoteShould {
+
     private Rover rover;
-private RoverRemote roverRemote;
+    private RoverRemote roverRemote;
+
     @BeforeEach
     void initialize() {
-        CommandConverter commandConverter = new CommandConverter();
-        rover = new Rover(commandConverter);
+        rover = new Rover();
         roverRemote = new RoverRemote(rover);
 
     }
