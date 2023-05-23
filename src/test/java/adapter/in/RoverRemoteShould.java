@@ -45,4 +45,16 @@ public class RoverRemoteShould {
     void give_error_when_command_isNull() {
         assertThrows(IllegalArgumentException.class, () -> roverRemote.moves(null), "domain.Command is null");
     }
+
+    @Test
+    void move_forward_one_space(){
+        //arrange
+
+        //act
+        roverRemote.moves("M");
+
+        //assert
+        assertEquals("0,1", rover.position());
+
+    }
 }

@@ -37,4 +37,8 @@ public class Rover {
             }
         }
     }
+
+    public String position() {
+        return "";
+    }
 }
