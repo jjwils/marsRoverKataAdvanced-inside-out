@@ -82,4 +82,14 @@ public class RoverRemoteShould {
         //assert
         assertEquals("1,0", rover.position());
     }
+    @Test
+    void move_right_then_forward(){
+        //arrange
+
+        //act
+        roverRemote.moves("LM");
+
+        //assert
+        assertEquals("-1,0", rover.position());
+    }
 }
