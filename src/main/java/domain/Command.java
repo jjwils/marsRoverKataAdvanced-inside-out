@@ -2,6 +2,6 @@ package domain;
 
 public enum Command {
 
-  RIGHT, LEFT
+  RIGHT, MOVE, LEFT
 
 }

@@ -20,6 +20,10 @@ public class CommandConverter {
         commands.add(Command.LEFT);
         continue;
       }
+      if (commandsAsString.toCharArray()[i] == 'M') {
+        commands.add(Command.MOVE);
+        continue;
+      }
 
       throw new IllegalArgumentException();
 

@@ -5,6 +5,8 @@ import java.util.List;
 public class Rover {
     String[] directions = new String[]{"N", "E", "S", "W"};
     private int directionIndex = 0;
+    private int y = 0;
+    private int x = 0;
 
     public Rover() {
     }
@@ -14,7 +16,7 @@ public class Rover {
     }
 
     public void move(List<Command> commands) {
-       if (commands == null) {
+        if (commands == null) {
             throw new IllegalArgumentException();
         }
 
@@ -32,6 +34,12 @@ public class Rover {
                     directionIndex = 3;
                 }
 
+            } else if (command == Command.MOVE) {
+                if (direction().equals("W")) {
+                    x++;
+                } else {
+                    y++;
+                }
             } else {
                 throw new IllegalArgumentException();
             }
@@ -39,6 +47,6 @@ public class Rover {
     }
 
     public String position() {
-        return "";
+        return x + "," + y;
     }
 }
