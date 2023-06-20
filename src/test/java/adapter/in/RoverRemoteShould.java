@@ -31,7 +31,7 @@ public class RoverRemoteShould {
         roverRemote.moves(command);
 
         //assert
-        assertEquals(direction, rover.direction());
+        assertEquals(direction, roverRemote.direction());
     }
     @Test
     void give_error_when_command_is_not_allowed() {
@@ -76,20 +76,20 @@ public class RoverRemoteShould {
     void move_left_then_forward(){
         //arrange
 
-        //act
+        //act - turn to the west, then move fwd one space
         roverRemote.moves("LM");
 
         //assert
-        assertEquals("1,0", rover.position());
+        assertEquals("-1,0", rover.position());
     }
     @Test
     void move_right_then_forward(){
         //arrange
 
-        //act
+        //act - turn to the east, then move fwd one space
         roverRemote.moves("RM");
 
         //assert
-        assertEquals("-1,0", rover.position());
+        assertEquals("1,0", rover.position());
     }
 }

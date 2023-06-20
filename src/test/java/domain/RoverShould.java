@@ -23,13 +23,6 @@ public class RoverShould {
     }
 
     @Test
-    void give_direction_N_when_no_commands() {
-
-        assertEquals("N", rover.direction());
-
-    }
-
-    @Test
     void throw_illegal_argument_if_null(){
 
         assertThrows(
@@ -37,7 +30,6 @@ public class RoverShould {
                 () -> rover.move(null),
                 "domain.Command is invalid"
         );
-
 
     }
 
@@ -52,6 +44,19 @@ public class RoverShould {
                 () -> rover.move(commandList),
                 "domain.Command is invalid"
         );
+    }
+
+    @Test
+    void return_north_before_any_commands() {
+        // arrange
+        Rover rover = new Rover();
+
+        // act
+
+
+        // assert
+
+        assertEquals(Compass.NORTH, rover.direction());
     }
 
 

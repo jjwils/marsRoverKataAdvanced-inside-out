@@ -3,7 +3,7 @@ package domain;
 import java.util.List;
 
 public class Rover {
-    String[] directions = new String[]{"N", "E", "S", "W"};
+    Compass[] directions = new Compass[]{Compass.NORTH,Compass.EAST, Compass.SOUTH, Compass.WEST};
     private int directionIndex = 0;
     private int y = 0;
     private int x = 0;
@@ -11,7 +11,7 @@ public class Rover {
     public Rover() {
     }
 
-    public String direction() {
+    public Compass direction() {
         return directions[directionIndex];
     }
 
@@ -35,10 +35,10 @@ public class Rover {
                 }
 
             } else if (command == Command.MOVE) {
-                if (direction().equals("E")) {
-                    x--;
-                }else if (direction().equals("W")) {
+                if (direction().equals(Compass.EAST)) {
                     x++;
+                }else if (direction().equals(Compass.WEST)) {
+                    x--;
                 } else {
                     y++;
                 }

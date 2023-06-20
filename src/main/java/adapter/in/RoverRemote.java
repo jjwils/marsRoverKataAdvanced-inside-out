@@ -25,5 +25,8 @@ public class RoverRemote {
     }
 
 
+    public String direction() {
+        return rover.direction().toString().substring(0,1);
 
+    }
 }
