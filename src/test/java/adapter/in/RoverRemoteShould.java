@@ -87,7 +87,7 @@ public class RoverRemoteShould {
         //arrange
 
         //act
-        roverRemote.moves("LM");
+        roverRemote.moves("RM");
 
         //assert
         assertEquals("-1,0", rover.position());

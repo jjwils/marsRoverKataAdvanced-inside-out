@@ -35,7 +35,9 @@ public class Rover {
                 }
 
             } else if (command == Command.MOVE) {
-                if (direction().equals("W")) {
+                if (direction().equals("E")) {
+                    x--;
+                }else if (direction().equals("W")) {
                     x++;
                 } else {
                     y++;
