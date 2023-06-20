@@ -1,11 +1,13 @@
-package domain;
+package adapter.in;
+
+import domain.Command;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class CommandConverter {
 
-  public List<Command> getCommands(String commandsAsString) {
+  public static List<Command> getCommands(String commandsAsString) {
 
     List<Command> commands = new ArrayList<>();
 

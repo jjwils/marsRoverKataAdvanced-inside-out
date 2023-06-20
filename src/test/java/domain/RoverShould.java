@@ -1,5 +1,6 @@
 package domain;
 
+import adapter.in.CommandConverter;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

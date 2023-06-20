@@ -1,6 +1,5 @@
 package adapter.in;
 
-import domain.CommandConverter;
 import domain.Rover;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
