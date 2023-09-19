@@ -3,16 +3,15 @@ package domain;
 import java.util.List;
 
 public class Rover {
+    private final Coordinates coordinates = new Coordinates();
+    private final Direction direction = new Direction();
     Compass[] directions = new Compass[]{Compass.NORTH,Compass.EAST, Compass.SOUTH, Compass.WEST};
-    private int directionIndex = 0;
-    private int y = 0;
-    private int x = 0;
 
     public Rover() {
     }
 
     public Compass direction() {
-        return directions[directionIndex];
+        return directions[direction.directionIndex];
     }
 
     public void move(List<Command> commands) {
@@ -23,24 +22,18 @@ public class Rover {
         for (Command command : commands) {
 
             if (command == Command.RIGHT) {
-                directionIndex++;
-                if (directionIndex == 4) {
-                    directionIndex = 0;
-                }
+                direction.moveRight();
 
             } else if (command == Command.LEFT) {
-                directionIndex--;
-                if (directionIndex == -1) {
-                    directionIndex = 3;
-                }
+                direction.moveLeft();
 
             } else if (command == Command.MOVE) {
                 if (direction().equals(Compass.EAST)) {
-                    x++;
+                    coordinates.moveEast();
                 }else if (direction().equals(Compass.WEST)) {
-                    x--;
+                    coordinates.moveWest();
                 } else {
-                    y++;
+                    coordinates.moveNorth();
                 }
             } else {
                 throw new IllegalArgumentException();
@@ -49,6 +42,7 @@ public class Rover {
     }
 
     public String position() {
-        return x + "," + y;
+        return coordinates.position();
     }
+
 }

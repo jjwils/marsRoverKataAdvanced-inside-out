@@ -1,5 +1,5 @@
 package domain;
 
 public enum Compass {
-  EAST, SOUTH, WEST, DIR_NORTH, NORTH
+  EAST, SOUTH, WEST, NORTH
 }
