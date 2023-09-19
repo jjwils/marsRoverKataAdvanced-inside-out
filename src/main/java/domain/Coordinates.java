@@ -7,16 +7,16 @@ public class Coordinates {
     public Coordinates() {
     }
 
-    int moveEast() {
-        return x++;
+    void moveEast() {
+        x++;
     }
 
-    int moveWest() {
-        return x--;
+    void moveWest() {
+        x--;
     }
 
-    int moveNorth() {
-        return y++;
+    void moveNorth() {
+        y++;
     }
 
     String position() {
